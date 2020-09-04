@@ -199,10 +199,10 @@ export class Animate extends React.Component {
         const previousStyle = this.makeStyles(currentStyle, styleOverrides)
         const nextStyle = this.makeStyles(styles)
 
-        wasAutoWidth = this.isProp(previousStyle, 'width', 'auto')
-        wasAutoHeight = this.isProp(previousStyle, 'height', 'auto')
-        isAutoWidth = this.isProp(nextStyle, 'width', 'auto')
-        isAutoHeight = this.isProp(nextStyle, 'height', 'auto')
+        wasAutoWidth = this.isProp(previousStyle, 'width', 'auto') || this.isProp(previousStyle, 'width', undefined)
+        wasAutoHeight = this.isProp(previousStyle, 'height', 'auto') || this.isProp(previousStyle, 'height', undefined)
+        isAutoWidth = this.isProp(nextStyle, 'width', 'auto') || this.isProp(nextStyle, 'width', undefined)
+        isAutoHeight = this.isProp(nextStyle, 'height', 'auto') || this.isProp(nextStyle, 'height', undefined)
 
         const isAutoWidthChanged = wasAutoWidth !== isAutoWidth
         const isAutoHeightChanged = wasAutoHeight !== isAutoHeight
